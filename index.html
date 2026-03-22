@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Storage</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        h1 { color: #333; }
+        .qr-container { display: flex; flex-wrap: wrap; gap: 20px; }
+        .qr-box { border: 1px solid #ccc; padding: 10px; text-align: center; }
+        .qr-box img { max-width: 200px; }
+        .upload-btn { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>QR Code Storage Website</h1>
+    <div class="qr-container">
+        <div class="qr-box">
+            <h3>Generated QR Code</h3>
+            <img src="qr-code-sample.png" alt="QR Code Sample">
+            <p><a href="#">Download</a></p>
+        </div>
+    </div>
+    <form id="qr-upload-form" enctype="multipart/form-data">
+        <input type="file" id="qr-code-file" name="file" accept="image/png, image/jpeg" required>
+        <button type="submit" class="upload-btn">Upload QR Code</button>
+    </form>
+    <script>
+        const form = document.getElementById('qr-upload-form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const fileInput = document.getElementById('qr-code-file');
+            const file = fileInput.files[0];
+            // Handle file upload logic here
+            alert('QR Code uploaded: ' + file.name);
+        });
+    </script>
+</body>
+</html>
