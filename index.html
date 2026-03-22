@@ -3,38 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Storage</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
-        h1 { color: #333; }
-        .qr-container { display: flex; flex-wrap: wrap; gap: 20px; }
-        .qr-box { border: 1px solid #ccc; padding: 10px; text-align: center; }
-        .qr-box img { max-width: 200px; }
-        .upload-btn { margin-top: 20px; }
-    </style>
+    <title>Information Portal</title>
 </head>
 <body>
-    <h1>QR Code Storage Website</h1>
-    <div class="qr-container">
-        <div class="qr-box">
-            <h3>Generated QR Code</h3>
-            <img src="qr-code-sample.png" alt="QR Code Sample">
-            <p><a href="#">Download</a></p>
+    <h1>Welcome to the Information Portal</h1>
+    <section id="qr-codes">
+        <h2>QR Code Storage</h2>
+        <p>Here, you can generate and store QR codes.</p>
+        <!-- QR Code implementation goes here -->
+    </section>
+    <section id="file-upload-download">
+        <h2>File Upload/Download Section</h2>
+        <form id="file-upload-form" enctype="multipart/form-data">
+            <input type="file" name="file" id="file-input" required />
+            <button type="submit">Upload</button>
+        </form>
+        <div id="file-list">
+            <h3>Uploaded Files:</h3>
+            <ul>
+                <!-- List of uploaded files will be displayed here -->
+            </ul>
         </div>
-    </div>
-    <form id="qr-upload-form" enctype="multipart/form-data">
-        <input type="file" id="qr-code-file" name="file" accept="image/png, image/jpeg" required>
-        <button type="submit" class="upload-btn">Upload QR Code</button>
-    </form>
+    </section>
     <script>
-        const form = document.getElementById('qr-upload-form');
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const fileInput = document.getElementById('qr-code-file');
-            const file = fileInput.files[0];
-            // Handle file upload logic here
-            alert('QR Code uploaded: ' + file.name);
-        });
+        // JavaScript for handling file uploads and displaying uploaded files
     </script>
 </body>
 </html>
